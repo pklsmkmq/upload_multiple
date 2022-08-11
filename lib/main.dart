@@ -36,8 +36,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void selectImage() async {
     final List<XFile>? selectImages = await _picker.pickMultiImage();
-    if (selectImages!.isNotEmpty) {
-      _imageFileList!.addAll(selectImages);
+    try {
+      if (selectImages!.isNotEmpty) {
+        _imageFileList!.addAll(selectImages);
+      }else{
+        print("gagal");
+      }
+    } catch (e) {
+      print("gagal");
     }
 
     print("Image List Length : ${_imageFileList!.length}");
